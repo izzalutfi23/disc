@@ -6,7 +6,7 @@
 		<p style="font-weight: bold;">Registrasi</p>
 		<hr>
 		<p class="lead">The fixed-top navbar bar is fixed at the top of the viewport and does not scroll with the rest of the page.</p>
-		awkowkwo iyggi  yg 
+		{{$orang->nama}}
 
 	</div>
 </div>

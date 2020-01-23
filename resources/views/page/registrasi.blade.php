@@ -10,23 +10,27 @@
 		</h5>
 		<!--Card content-->
 		<div class="card-body px-lg-5 pt-4">
-			<form>
+			<form action="{{url('/test')}}" method="post">
+				@csrf
 				<div class="form-group row">
 					<label class="col-sm-2 col-form-label">Nama Lengkap</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" placeholder="Nama lengkap">
+						<input type="text" class="form-control" name="nama" placeholder="Nama lengkap" value="{{old('nama')}}">
+						@if($errors->has('nama'))<span class="help-block" style="color: red;">{{ ucfirst($errors->first('nama')) }}</span>@endif
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-sm-2 col-form-label">Usia</label>
 					<div class="col-sm-10">
-						<input type="number" class="form-control" placeholder="Usia">
+						<input type="number" value="{{old('usia')}}" class="form-control" name="usia" placeholder="Usia">
+						@if($errors->has('usia'))<span class="help-block" style="color: red;">{{ ucfirst($errors->first('usia')) }}</span>@endif
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-sm-2 col-form-label">Email</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control" placeholder="Email">
+						<input type="email" value="{{old('email')}}" class="form-control" name="email" placeholder="Email">
+						@if($errors->has('email'))<span class="help-block" style="color: red;">{{ ucfirst($errors->first('email')) }}</span>@endif
 					</div>
 				</div>
 				<div class="form-group row">
@@ -36,13 +40,13 @@
 							<div class="row">
 								<div class="col">
 									<div class="custom-control custom-radio">
-										<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
+										<input type="radio" id="customRadio1" name="j_kel" value="L" class="custom-control-input" checked>
 										<label class="custom-control-label" for="customRadio1">Laki-laki</label>
 									</div>
 								</div>
 								<div class="col">
 									<div class="custom-control custom-radio">
-										<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+										<input type="radio" id="customRadio2" name="j_kel" value="P" class="custom-control-input">
 										<label class="custom-control-label" for="customRadio2">Perempuan</label>
 									</div>
 								</div>
@@ -50,7 +54,6 @@
 						</div>
 					</div>
 				</div>
-			</form>
 		</div>
 
 	</div>
@@ -68,9 +71,10 @@
 			<a style="font-size: 1.5em; cursor: help;" data-toggle="modal" data-target="#tutorial"><i class="fa fa-question-circle"></i></a>
 		</li>
 		<li class="nav-item ml-3">
-			<button class="btn btn-success">Submit</button>
+			<button type="submit" class="btn btn-success">Submit</button>
 		</li>
 	</ul>
 </nav>
+</form>
 <!-- End Footer -->
 @endsection()

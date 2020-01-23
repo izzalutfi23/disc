@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mhome;
+use App\Mtest;
 use Illuminate\Http\Request;
 
-class Home extends Controller
+class Test extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,7 @@ class Home extends Controller
      */
     public function index()
     {
-        $data = array(
-            'orang' => null
-        );
-        return view('page/registrasi', $data);
+        
     }
 
     /**
@@ -38,33 +35,16 @@ class Home extends Controller
      */
     public function store(Request $request)
     {
-        $messages = [
-            'required' => 'Isi sesuai petunjuk',
-            'numeric' => 'attribute wajib dengan nomor atau angka',
-            'email' => 'attribute wajib menggunakan format email'
-        ];
-
-        $request->validate([
-            'nama'=>'required',
-            'usia'=>'required|numeric',
-            'email'=>'required|email',
-            'j_kel'=>'required'
-        ], $messages);
-        
-        $data = array(
-            'orang' => $request
-        );
-
-        return view('page/test', $data); 
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mhome  $mhome
+     * @param  \App\Mtest  $mtest
      * @return \Illuminate\Http\Response
      */
-    public function show(Mhome $mhome)
+    public function show(Mtest $mtest)
     {
         //
     }
@@ -72,10 +52,10 @@ class Home extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mhome  $mhome
+     * @param  \App\Mtest  $mtest
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mhome $mhome)
+    public function edit(Mtest $mtest)
     {
         //
     }
@@ -84,10 +64,10 @@ class Home extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mhome  $mhome
+     * @param  \App\Mtest  $mtest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mhome $mhome)
+    public function update(Request $request, Mtest $mtest)
     {
         //
     }
@@ -95,10 +75,10 @@ class Home extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mhome  $mhome
+     * @param  \App\Mtest  $mtest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mhome $mhome)
+    public function destroy(Mtest $mtest)
     {
         //
     }

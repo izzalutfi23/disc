@@ -29,21 +29,21 @@
 	.form-group{
 		margin-top: 35px;
 	}
-	
+
 </style>
 </head>
 <body>
 
 	<!-- Header -->
-	<nav style="background-color: #6B6591; padding:20px;" class="navbar navbar-expand-md navbar-dark fixed-top">
-		<a href="#" style="padding-left: 8%; font-weight: bold;" class="navbar-brand">DISC Online Test</a>
+	<nav style="background-color: #6C62AB;" class="navbar navbar-expand-md navbar-dark fixed-top">
+		<a href="{{('/')}}" style="padding: 10px 0px 10px 8%; font-weight: bold;" class="navbar-brand">DISC Online Test</a>
 		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<div class="navbar-nav ml-auto">
-				<a href="#" class="nav-item nav-link">Login</a>
+			<div class="navbar-nav ml-auto" style="background-color: #7E799B; margin: 0;">
+				<a href="#" class="nav-item nav-link" style="padding: 20px; color: #FFF;">Selamat Datang @if($orang!=null) {{$orang->nama}} @endif</a>
 			</div>
 		</div>
 	</nav>
