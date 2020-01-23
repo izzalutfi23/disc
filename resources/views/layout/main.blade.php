@@ -23,45 +23,33 @@
 		padding-top: 25px;
 		padding-bottom: 25px;
 	}
+	input[type="text"],[type="number"],[type="email"]{
+		height: 50px;
+	}
+	.form-group{
+		margin-top: 35px;
+	}
+	
 </style>
 </head>
 <body>
-	<div class="bs-example">
-		<nav style="background-color: #6B6591; padding:20px;" class="navbar navbar-expand-md navbar-dark fixed-top">
-			<a href="#" style="padding-left: 8%; font-weight: bold;" class="navbar-brand">DISC Online Test</a>
-			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
 
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<div class="navbar-nav ml-auto">
-					<a href="#" class="nav-item nav-link">Login</a>
-				</div>
-			</div>
-		</nav>
+	<!-- Header -->
+	<nav style="background-color: #6B6591; padding:20px;" class="navbar navbar-expand-md navbar-dark fixed-top">
+		<a href="#" style="padding-left: 8%; font-weight: bold;" class="navbar-brand">DISC Online Test</a>
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-		<!-- Demo Content -->    
-		<div class="container">
-			<div class="jumbotron" style="background-color: #FFF;">
-				<p style="font-weight: bold;">SOAL DISC TEST</p>
-				<hr>
-				<p class="lead">The fixed-top navbar bar is fixed at the top of the viewport and does not scroll with the rest of the page.</p>
-				awokwokwok
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav ml-auto">
+				<a href="#" class="nav-item nav-link">Login</a>
 			</div>
 		</div>
-	</div>
-	<nav id="submit" style="border: 1px solid #E5DDDD;" class="navbar navbar-expand-lg bg-light fixed-bottom">
-		<ul class="navbar nav ml-auto">
-			<li class="nav-item">
-				<span id="span"></span>
-			</li>
-			<li class="nav-item ml-3">
-				<a style="font-size: 1.5em; cursor: help;" data-toggle="modal" data-target="#tutorial"><i class="fa fa-question-circle"></i></a>
-			</li>
-			<li class="nav-item ml-3">
-				<button class="btn btn-success">Submit</button>
-			</li>
-		</ul>
 	</nav>
+	<!-- End Header -->
+
+	@yield('container')
+
 </body>
 </html>                            
