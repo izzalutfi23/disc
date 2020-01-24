@@ -7,45 +7,50 @@
 		<hr>
 		<p class="lead">The fixed-top navbar bar is fixed at the top of the viewport and does not scroll with the rest of the page.</p>
 		<div class="row">
-		@for ($i = 1; $i <= 24; $i++)
+			@for ($i = 1; $i <= 24; $i++)
 			<div class="col-sm-6" style="margin-top: 20px;">
 				<div class="card">
 					<div class="card-body">
-						<div class="row">
-							<div class="col-md-auto">
-								<h6 class="card-title" style="font-weight: bold; color: #9A9797; margin-top: 40px;">{{$i}}</h6>
-							</div>
-							<div class="col-md-auto">
-								<table width="100%">
-									<tr>
-										<td><i class="fa fa-thumbs-up"></i></td>
-										<td><i class="fa fa-thumbs-down"></i></td>
-										<td><h6 class="card-title" style="font-weight: bold; color: #9A9797;">Gambaran Diri</h6></td>
-									</tr>
-									@for ($j = 1; $j <= 4; $j++)
-									<tr>
-										<td width="9%" valign="top">
-											<label class="cont">
-												<input type="radio" name="radio1">
-												<span class="checkmark"></span>
-											</label>
-										</td>
-										<td width="9%" valign="top">
-											<label class="cont">
-												<input type="radio" name="radio2">
-												<span class="checkmark"></span>
-											</label>
-										</td>
-										<td><p style="color: #9A9797;">Gambaran Diri</p></td>
-									</tr>
-									@endfor
-								</table>
-							</div>
-						</div>
+						<table width="100%">
+							<tr>
+								<td></td>
+								<td><i class="fa fa-thumbs-up"></i></td>
+								<td><i class="fa fa-thumbs-down"></i></td>
+								<td><h6 class="card-title" style="font-weight: bold; color: #9A9797;">Gambaran Diri</h6></td>
+							</tr>
+							@php
+								$huruf = ['A', 'B', 'C' , 'D'];
+								$num = -1;
+							@endphp
+							@for ($j = 1; $j <= 4; $j++)
+							@php
+							$num++;
+							$key = $huruf[$num];
+							@endphp
+							<tr>
+								@if($key == 'A')
+								<td rowspan="4" valign="top"><h6 class="card-title" style="font-weight: bold; color: #9A9797;">{{$i}}</h6></td>
+								@endif
+								<td width="9%" valign="top">
+									<label class="cont">
+										<input type="radio" name="radio1">
+										<span class="checkmark"></span>
+									</label>
+								</td>
+								<td width="9%" valign="top">
+									<label class="cont">
+										<input type="radio" name="radio2">
+										<span class="checkmark"></span>
+									</label>
+								</td>
+								<td><p style="color: #9A9797;">Gambaran Diri</p></td>
+							</tr>
+							@endfor
+						</table>
 					</div>
 				</div>
 			</div>
-		@endfor
+			@endfor
 		</div>
 
 	</div>
