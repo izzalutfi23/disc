@@ -1,12 +1,26 @@
 @extends('layout/main')
 @section('container')
 <!-- Content -->    
-<div class="container" style="margin-top: 30px;">
+<div class="container" style="margin-top: 30px; margin-bottom: 90px;">
 	<div class="jumbotron" style="background-color: #FFF;">
 		<p style="font-weight: bold;">Registrasi</p>
 		<hr>
 		<p class="lead">The fixed-top navbar bar is fixed at the top of the viewport and does not scroll with the rest of the page.</p>
-		{{$orang->nama}}
+		<div class="row">
+			<?php 
+				for($x=0;$x<24;$x++){
+			 ?>
+			<div class="col-sm-6" style="margin-top: 20px;">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Special title treatment</h5>
+						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+		<?php } ?>
+		</div>
 
 	</div>
 </div>
