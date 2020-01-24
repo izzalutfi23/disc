@@ -19,8 +19,8 @@
 								<td><h6 class="card-title" style="font-weight: bold; color: #9A9797;">Gambaran Diri</h6></td>
 							</tr>
 							@php
-								$huruf = ['A', 'B', 'C' , 'D'];
-								$num = -1;
+							$huruf = ['A', 'B', 'C' , 'D'];
+							$num = -1;
 							@endphp
 							@for ($j = 1; $j <= 4; $j++)
 							@php
@@ -57,6 +57,58 @@
 </div>
 <!-- End Content -->
 
+
+<!-- Modal Petunjuk -->
+<div class="modal fade" id="tutorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Tutorial DISC Test</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>"Tes ini terdiri dari 24 Soal dan 2 jawaban setiap soal. Jawab secara jujur dan spontan. Estimasi waktu pengerjaan adalah 5-10 menit"</p>
+				<ul>
+					<li>Pelajari semua jawaban pada setiap pilihan</li>
+					<li>
+						Pilih satu jawaban yang
+						<strong>paling mendekati diri kamu</strong>
+						(
+							<i style="color:#56DB28" class="fa fa-thumbs-up"></i>
+						)
+					</li>
+					<li>
+						Pilih satu jawaban yang
+						<strong>paling tidak mendekati diri kamu</strong>
+						( 
+							<i style="color:#E3451E" class="fa fa-thumbs-down"></i>
+						)
+					</li>
+				</ul><br>
+				<p>
+					Pada setiap soal harus memiliki jawaban
+					<ins>satu</ins>
+					<strong>paling mendekati diri kamu</strong>
+					dan hanya
+					<ins>satu</ins>
+					<strong>paling tidak mendekati diri kamu</strong>.
+				</p>
+				<p>
+					Terkadang akan sedikit sulit untuk memutuskan jawaban yang terbaik. Ingat, tidak ada jawaban yang benar atau salah dalam tes ini.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" data-dismiss="modal">Mengerti</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Modal -->
+
+
+
 <!-- Footer -->
 <nav id="submit" style="border: 1px solid #E5DDDD;" class="navbar navbar-expand-lg bg-light fixed-bottom">
 	<ul class="navbar nav ml-auto">
@@ -72,4 +124,9 @@
 	</ul>
 </nav>
 <!-- End Footer -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#tutorial").modal("toggle");
+	});
+</script>
 @endsection()
