@@ -1,7 +1,7 @@
 @extends('layout/main')
 @section('container')
 <!-- Content -->    
-<div class="container" style="margin-top: 30px;">
+<div class="container" style="margin-top: 30px; margin-bottom: 90px;">
 	<!-- Material form login -->
 	<div class="card">
 
@@ -40,13 +40,13 @@
 							<div class="row">
 								<div class="col">
 									<div class="custom-control custom-radio">
-										<input type="radio" id="customRadio1" name="j_kel" value="L" class="custom-control-input" checked>
+										<input type="radio" id="customRadio1" name="j_kel" value="Laki-laki" class="custom-control-input" checked>
 										<label class="custom-control-label" for="customRadio1">Laki-laki</label>
 									</div>
 								</div>
 								<div class="col">
 									<div class="custom-control custom-radio">
-										<input type="radio" id="customRadio2" name="j_kel" value="P" class="custom-control-input">
+										<input type="radio" id="customRadio2" name="j_kel" value="Perempuan" class="custom-control-input">
 										<label class="custom-control-label" for="customRadio2">Perempuan</label>
 									</div>
 								</div>

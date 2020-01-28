@@ -23,6 +23,9 @@
 		padding-top: 25px;
 		padding-bottom: 25px;
 	}
+	.lead{
+		font-size: 17px;
+	}
 	input[type="text"],[type="number"],[type="email"]{
 		height: 50px;
 	}
@@ -79,7 +82,7 @@
 		background-color: #ccc;
 	}
 
-	/* When the radio button is checked, add a blue background */
+	/* When the radio button is checked, add a green background */
 	.cont input:checked ~ .checkmark {
 		background-color: #0BB20B;
 	}

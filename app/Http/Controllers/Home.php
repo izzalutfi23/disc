@@ -58,6 +58,15 @@ class Home extends Controller
         return view('page/test', $data); 
     }
 
+    // postest
+
+    public function postest(Request $request){
+        $data = array(
+            'orang' => $request
+        );
+        return view('page/postest', $data);
+    }
+
     /**
      * Display the specified resource.
      *

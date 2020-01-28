@@ -6,6 +6,12 @@
 		<p style="font-weight: bold;">SOAL DISC TEST</p>
 		<hr>
 		<p class="lead">The fixed-top navbar bar is fixed at the top of the viewport and does not scroll with the rest of the page.</p>
+		<form method="post" action="{{url('/test/postest')}}">
+		@csrf
+		<input type="hidden" name="nama" value="{{$orang->nama}}">
+		<input type="hidden" name="usia" value="{{$orang->usia}}">
+		<input type="hidden" name="j_kel" value="{{$orang->j_kel}}">
+		<input type="hidden" name="email" value="{{$orang->email}}">
 		<div class="row">
 			@for ($i = 1; $i <= 24; $i++)
 			<div class="col-sm-6" style="margin-top: 20px;">
@@ -119,8 +125,9 @@
 			<a style="font-size: 1.5em; cursor: help;" data-toggle="modal" data-target="#tutorial"><i class="fa fa-question-circle"></i></a>
 		</li>
 		<li class="nav-item ml-3">
-			<button class="btn btn-success">Submit</button>
+			<button type="submit" class="btn btn-success">Submit</button>
 		</li>
+		</form>
 	</ul>
 </nav>
 <!-- End Footer -->
