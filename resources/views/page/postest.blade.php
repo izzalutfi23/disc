@@ -132,7 +132,7 @@
 		data: {
 			labels: ["D", "I", "S", "C"],
 			datasets: [{
-				data: [0,-1.3,0.7,5.3],
+				data: [-3,4,-1,5.3],
 				fill: false,
 				borderColor: '#A947FD',
 				borderWidth: 3
@@ -161,7 +161,7 @@
 	});
 </script>
 
-<!-- Chart 1 -->
+<!-- Chart 2 -->
 <script type="text/javascript">
 	var ctx = document.getElementById("chart2").getContext('2d');
 	var myChart = new Chart(ctx, {
@@ -169,7 +169,7 @@
 		data: {
 			labels: ["D", "I", "S", "C"],
 			datasets: [{
-				data: [0.5,-4.3,2.5,4],
+				data: [0.5,0,-4,0],
 				fill: false,
 				borderColor: 'green',
 				borderWidth: 3
@@ -198,7 +198,7 @@
 	});
 </script>
 
-<!-- Chart 1 -->
+<!-- Chart 3 -->
 <script type="text/javascript">
 	var ctx = document.getElementById("chart3").getContext('2d');
 	var myChart = new Chart(ctx, {

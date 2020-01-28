@@ -119,7 +119,7 @@
 <nav id="submit" style="border: 1px solid #E5DDDD;" class="navbar navbar-expand-lg bg-light fixed-bottom">
 	<ul class="navbar nav ml-auto">
 		<li class="nav-item">
-			<span id="span"></span>
+			<span id="answered" style="color: #A8A7A7">2</span><span style="color: #A8A7A7">/</span><span id="total" style="color: #A8A7A7">24</span> <span style="color: #A8A7A7">Soal Terjawab</span>
 		</li>
 		<li class="nav-item ml-3">
 			<a style="font-size: 1.5em; cursor: help;" data-toggle="modal" data-target="#tutorial"><i class="fa fa-question-circle"></i></a>
