@@ -5,7 +5,7 @@
 	<div class="jumbotron" style="background-color: #FFF;">
 		<p style="font-weight: bold;">SOAL DISC TEST</p>
 		<hr>
-		<p class="lead">The fixed-top navbar bar is fixed at the top of the viewport and does not scroll with the rest of the page.</p>
+		<p class="lead">Tes ini terdiri dari 24 Soal dan 2 jawaban setiap soal. Jawab secara jujur dan spontan. Estimasi waktu pengerjaan adalah 5-10 menit.</p>
 		<form method="post" action="{{url('/test/postest')}}">
 		@csrf
 		<input type="hidden" name="nama" value="{{$orang->nama}}">
@@ -13,7 +13,7 @@
 		<input type="hidden" name="j_kel" value="{{$orang->j_kel}}">
 		<input type="hidden" name="email" value="{{$orang->email}}">
 		<div class="row">
-			@for ($i = 1; $i <= 24; $i++)
+			@for ($i = 1; $i <= 4; $i++)
 			<div class="col-sm-6" style="margin-top: 20px;">
 				<div class="card">
 					<div class="card-body">
@@ -26,6 +26,7 @@
 							</tr>
 							@php
 							$huruf = ['A', 'B', 'C' , 'D'];
+							$disc = ['D', 'I', 'S', 'C', '*'];
 							$num = -1;
 							@endphp
 							@for ($j = 1; $j <= 4; $j++)
@@ -35,17 +36,17 @@
 							@endphp
 							<tr>
 								@if($key == 'A')
-								<td rowspan="4" valign="top"><h6 class="card-title" style="font-weight: bold; color: #9A9797;">{{$i}}</h6></td>
+								<td rowspan="4" valign="top"><h6 class="card-title"  style="font-weight: bold; color: #9A9797;">{{$i}}</h6></td>
 								@endif
 								<td width="9%" valign="top">
 									<label class="cont">
-										<input type="radio" name="radio1">
+										<input type="radio" name="m[{{$i}}]" class="{{$i}}-m" value="{{$key}}">
 										<span class="checkmark"></span>
 									</label>
 								</td>
 								<td width="9%" valign="top">
 									<label class="cont">
-										<input type="radio" name="radio2">
+										<input type="radio" name="l[{{$i}}]" class="{{$i}}-l" value="{{$key}}">
 										<span class="checkmark"></span>
 									</label>
 								</td>
@@ -119,7 +120,7 @@
 <nav id="submit" style="border: 1px solid #E5DDDD;" class="navbar navbar-expand-lg bg-light fixed-bottom">
 	<ul class="navbar nav ml-auto">
 		<li class="nav-item">
-			<span id="answered" style="color: #A8A7A7">2</span><span style="color: #A8A7A7">/</span><span id="total" style="color: #A8A7A7">24</span> <span style="color: #A8A7A7">Soal Terjawab</span>
+			<span id="answered" style="color: #A8A7A7"></span><span style="color: #A8A7A7">/</span><span id="total" style="color: #A8A7A7">24</span> <span style="color: #A8A7A7">Soal Terjawab</span>
 		</li>
 		<li class="nav-item ml-3">
 			<a style="font-size: 1.5em; cursor: help;" data-toggle="modal" data-target="#tutorial"><i class="fa fa-question-circle"></i></a>
@@ -130,10 +131,52 @@
 		</form>
 	</ul>
 </nav>
-<!-- End Footer -->
+
+
+
+<!-- Tutorial -->
+<!-- http://jsfiddle.net/AnWU3/4/ -->
+
 <script type="text/javascript">
+	$(document).on("change", "input[type=radio]", function(){
+		var className = $(this).attr("class");
+		var currentNumber = className.split("-")[0];
+		var currentCode = className.split("-")[1];
+		var oppositeCode = currentCode == "m" ? "l" : "m";
+		var currentValue = $(this).val();
+		var oppositeValue = $("." + currentNumber + "-" + oppositeCode + ":checked").val();
+
+		// Detect if one question has same answer
+		if(currentValue == oppositeValue){
+			$("." + currentNumber + "-" + oppositeCode + ":checked").prop("checked", false);
+			oppositeValue = $("." + currentNumber + "-" + oppositeCode + ":checked").val();
+		}
+
+		// Count answered question
+		// countAnswered();
+
+		// Enable submit button
+		// countAnswered() >= totalQuestion() ? $("#btn-submit").removeAttr("disabled") : $("#btn-submit").attr("disabled", "disabled");
+	});
+
+	// Count answered question
+	// function countAnswered(){
+	// 	var total = 0;
+	// 	$(".num").each(function(key, elem){
+	// 		var id = $(elem).data("id");
+	// 		var mValue = $("." + id + "-y:checked").val();
+	// 		var lValue = $("." + id + "-n:checked").val();
+	// 		mValue != undefined && lValue != undefined ? total++ : "";
+	// 	});
+	// 	$("#answered").text(total);
+	// 	return total;
+	// }
+</script>
+
+<!-- End Footer -->
+<!-- <script type="text/javascript">
 	$(document).ready(function(){
 		$("#tutorial").modal("toggle");
 	});
-</script>
+</script> -->
 @endsection()
