@@ -21,3 +21,4 @@ Route::get('disc/coba', 'adminsoal@coba');
 // Admin
 Route::get('/disc/admin', 'admin@index');
 Route::get('/disc/soal', 'adminsoal@index');
+Route::post('/disc/soal', 'adminsoal@store');

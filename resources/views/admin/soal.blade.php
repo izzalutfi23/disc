@@ -2,6 +2,16 @@
 @section('title', 'Soal')
 @section('container')
 
+@if (session('status'))
+<section class="content-header">
+	<div class="alert alert-success alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<h4><i class="icon fa fa-check"></i> Berhasil!</h4>
+		{{session('status')}}
+	</div>
+</section>
+@endif
+
 <section class="content-header">
 	<h1>
 		Data Soal
@@ -29,7 +39,8 @@
 										<h4 class="modal-title">Tambah Data Soal</h4>
 									</div>
 									<div class="modal-body">
-										<form>
+										<form action="{{url('/disc/soal')}}" method="post">
+											@csrf
 											<div class="form-group">
 												<label for="exampleInputEmail1">Nomor Soal</label>
 												<select name="nomor" class="form-control">

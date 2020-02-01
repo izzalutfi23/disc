@@ -52,7 +52,18 @@ class Adminsoal extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $soal = [
+            ['pilihan' => $request->pilihan1, 'keym' => $request->keym1, 'keyl' => $request->keyl1],
+            ['pilihan' => $request->pilihan2, 'keym' => $request->keym2, 'keyl' => $request->keyl2],
+            ['pilihan' => $request->pilihan3, 'keym' => $request->keym3, 'keyl' => $request->keyl3],
+            ['pilihan' => $request->pilihan4, 'keym' => $request->keym4, 'keyl' => $request->keyl4],
+        ];
+
+        $json = json_encode($soal);
+
+        Msoal::create(['nomor' => $request->nomor, 'soal' => $json]);
+
+        return redirect('/disc/soal')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**
