@@ -73,12 +73,4 @@ class Home extends Controller
      * @param  \App\Mhome  $mhome
      * @return \Illuminate\Http\Response
      */
-    public function coba(){
-        $data = [
-            ['user_id'=>'Coder 1', 'subject_id'=> 4096],
-            ['user_id'=>'Coder 2', 'subject_id'=> 2048],
-        ];
-
-        return $data;
-    }
 }

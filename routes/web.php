@@ -17,6 +17,7 @@ Route::get('/', 'home@index');
 Route::post('/test', 'home@store');
 Route::post('/test/postest', 'home@postest');
 
-Route::get('/coba', 'home@coba');
+Route::get('disc/coba', 'adminsoal@coba');
 // Admin
 Route::get('/disc/admin', 'admin@index');
+Route::get('/disc/soal', 'adminsoal@index');

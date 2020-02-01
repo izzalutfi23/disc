@@ -13,10 +13,7 @@ class Admin extends Controller
     	$data = array(
     		'no' => $nomor
     	);
-    	
-    	$json = json_decode($data['no']);
-    	foreach ($json as $key) {
-    		echo $key->nomor."<br>";
-    	}
+
+    	return view('admin/home');
     }
 }

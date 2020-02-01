@@ -1,6 +1,5 @@
 @extends('admin/layout/main')
 @section('title', 'Home')
-@section('menu', 'home')
 @section('container')
 
 <section class="content-header">

@@ -98,8 +98,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li class="{{ (request()->segment(2) == 'admin') ? 'active' : '' }}"><a href="{{url('/')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
-        <li class="{{ (request()->segment(2) == 'soal') ? 'active' : '' }}"><a href="{{url('/soal')}}"><i class="fa fa-users"></i> <span>Soal</span></a></li>
+        <li class="{{ (request()->segment(2) == 'admin') ? 'active' : '' }}"><a href="{{url('/disc/admin')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
+        <li class="{{ (request()->segment(2) == 'soal') ? 'active' : '' }}"><a href="{{url('/disc/soal')}}"><i class="fa fa-users"></i> <span>Soal</span></a></li>
         
       </ul>
     </section>
