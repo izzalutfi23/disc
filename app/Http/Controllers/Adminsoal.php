@@ -16,8 +16,11 @@ class Adminsoal extends Controller
     public function index()
     {
         $nomor = Mnomor::all();
+        $soal = Msoal::all();
+
         $data = array(
-            'no' => $nomor
+            'no' => $nomor,
+            'pilihan' => $soal
         );
         return view('admin/soal', $data);
     }

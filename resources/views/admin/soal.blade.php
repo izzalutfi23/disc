@@ -184,17 +184,32 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>No</th>
+									<th width="5%">No</th>
 									<th>Soal</th>
-									<th>Aksi</th>
+									<th width="5%">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
+								@foreach($pilihan as $data)
 								<tr>
-									<td>1</td>
-									<td>Ok</td>
+									<td>{{$data->nomor}}</td>
+									<td>
+										@php
+											$json = json_decode($data->soal);
+										@endphp
+										<table width="100%">
+											@foreach($json as $soal)
+											<tr>
+												<td>{{$soal->pilihan}}</td>
+												<td>{{$soal->keym}}</td>
+												<td>{{$soal->keyl}}</td>
+											</tr>
+											@endforeach
+										</table>
+									</td>
 									<td><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
 								</tr>
+								@endforeach
 							</table>
 						</div>
 						<!-- /.box-body -->
