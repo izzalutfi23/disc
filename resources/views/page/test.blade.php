@@ -13,6 +13,9 @@
 		<input type="hidden" name="j_kel" value="{{$orang->j_kel}}">
 		<input type="hidden" name="email" value="{{$orang->email}}">
 		<div class="row">
+			@php
+				$totalsoal = 0;
+			@endphp
 			@for ($i = 1; $i <= 4; $i++)
 			<div class="col-sm-6" style="margin-top: 20px;">
 				<div class="card">
@@ -28,25 +31,27 @@
 							$huruf = ['A', 'B', 'C' , 'D'];
 							$disc = ['D', 'I', 'S', 'C', '*'];
 							$num = -1;
+							$totalsoal = $totalsoal+1;
 							@endphp
 							@for ($j = 1; $j <= 4; $j++)
 							@php
 							$num++;
 							$key = $huruf[$num];
+							$keydisc = $disc[$num];
 							@endphp
 							<tr>
 								@if($key == 'A')
-								<td rowspan="4" valign="top"><h6 class="card-title"  style="font-weight: bold; color: #9A9797;">{{$i}}</h6></td>
+								<td rowspan="4" valign="top" data-id="{{ $i }}" class="num"><h6 class="card-title"  style="font-weight: bold; color: #9A9797;">{{$i}}</h6></td>
 								@endif
 								<td width="9%" valign="top">
 									<label class="cont">
-										<input type="radio" name="m[{{$i}}]" class="{{$i}}-m" value="{{$key}}">
+										<input type="radio" name="y[{{$i}}]" id="{{$keydisc}}m" class="{{$i}}-y" value="{{$key}}">
 										<span class="checkmark"></span>
 									</label>
 								</td>
 								<td width="9%" valign="top">
 									<label class="cont">
-										<input type="radio" name="l[{{$i}}]" class="{{$i}}-l" value="{{$key}}">
+										<input type="radio" name="n[{{$i}}]" id="{{$keydisc}}l" class="{{$i}}-n" value="{{$key}}">
 										<span class="checkmark"></span>
 									</label>
 								</td>
@@ -118,15 +123,17 @@
 
 <!-- Footer -->
 <nav id="submit" style="border: 1px solid #E5DDDD;" class="navbar navbar-expand-lg bg-light fixed-bottom">
+	<!-- <p>Most : <span class="Dm">0</span> D &ndash; <p><span class="Im">0</span> I &ndash; <p><span class="Sm">0</span> S &ndash; <span class="Cm">0</span> C</p>
+	<p>Most : <span class="Dl">0</span> D &ndash; <p><span class="Il">0</span> I &ndash; <p><span class="Sl">0</span> S &ndash; <span class="Cl">0</span> C</p> -->
 	<ul class="navbar nav ml-auto">
 		<li class="nav-item">
-			<span id="answered" style="color: #A8A7A7"></span><span style="color: #A8A7A7">/</span><span id="total" style="color: #A8A7A7">24</span> <span style="color: #A8A7A7">Soal Terjawab</span>
+			<span id="answered" style="color: #A8A7A7">0</span><span style="color: #A8A7A7">/</span><span id="total" style="color: #A8A7A7">{{$totalsoal}}</span> <span style="color: #A8A7A7">Soal Terjawab</span>
 		</li>
 		<li class="nav-item ml-3">
 			<a style="font-size: 1.5em; cursor: help;" data-toggle="modal" data-target="#tutorial"><i class="fa fa-question-circle"></i></a>
 		</li>
 		<li class="nav-item ml-3">
-			<button type="submit" class="btn btn-success">Submit</button>
+			<button type="submit" id="btn-submit" class="btn btn-success" disabled>Submit</button>
 		</li>
 		</form>
 	</ul>
@@ -142,7 +149,7 @@
 		var className = $(this).attr("class");
 		var currentNumber = className.split("-")[0];
 		var currentCode = className.split("-")[1];
-		var oppositeCode = currentCode == "m" ? "l" : "m";
+		var oppositeCode = currentCode == "y" ? "n" : "y";
 		var currentValue = $(this).val();
 		var oppositeValue = $("." + currentNumber + "-" + oppositeCode + ":checked").val();
 
@@ -153,30 +160,58 @@
 		}
 
 		// Count answered question
-		// countAnswered();
+		countAnswered();
 
 		// Enable submit button
-		// countAnswered() >= totalQuestion() ? $("#btn-submit").removeAttr("disabled") : $("#btn-submit").attr("disabled", "disabled");
+		var totalQuestion = document.getElementById('total').innerHTML;
+		countAnswered() >= totalQuestion ? $("#btn-submit").removeAttr("disabled") : $("#btn-submit").attr("disabled", "disabled");
 	});
 
 	// Count answered question
-	// function countAnswered(){
-	// 	var total = 0;
-	// 	$(".num").each(function(key, elem){
-	// 		var id = $(elem).data("id");
-	// 		var mValue = $("." + id + "-y:checked").val();
-	// 		var lValue = $("." + id + "-n:checked").val();
-	// 		mValue != undefined && lValue != undefined ? total++ : "";
-	// 	});
-	// 	$("#answered").text(total);
-	// 	return total;
-	// }
-</script>
+	function countAnswered(){
+		var total = 0;
+		$(".num").each(function(key, elem){
+			var id = $(elem).data("id");
+			var mValue = $("." + id + "-y:checked").val();
+			var lValue = $("." + id + "-n:checked").val();
+			mValue != undefined && lValue != undefined ? total++ : "";
+		});
+		$("#answered").text(total);
+		return total;
+	}
+	// Count DISC Most
+	$(document).ready(function() {
+		$('input').change(function(){
+			var D = $('#Dm:checked').length
+			var I = $('#Im:checked').length
+			var S = $('#Sm:checked').length
+			var C = $('#Cm:checked').length 
+			$('.Dm').text(D)
+			$('.Im').text(I)
+			$('.Sm').text(S)
+			$('.Cm').text(C)                        
+		})
+	});
+	// Count DISC Lost
+	$(document).ready(function() {
+		$('input').change(function(){
+			var D = $('#Dl:checked').length
+			var I = $('#Il:checked').length
+			var S = $('#Sl:checked').length
+			var C = $('#Cl:checked').length 
+			$('.Dl').text(D)
+			$('.Il').text(I)
+			$('.Sl').text(S)
+			$('.Cl').text(C)                        
+		})
+	});
 
-<!-- End Footer -->
-<!-- <script type="text/javascript">
+	// Modal dialog tutorial
 	$(document).ready(function(){
 		$("#tutorial").modal("toggle");
 	});
-</script> -->
+
+</script>
+
+<!-- End Footer -->
 @endsection()

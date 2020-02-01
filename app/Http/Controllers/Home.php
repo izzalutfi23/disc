@@ -73,42 +73,12 @@ class Home extends Controller
      * @param  \App\Mhome  $mhome
      * @return \Illuminate\Http\Response
      */
-    public function show(Mhome $mhome)
-    {
-        //
-    }
+    public function coba(){
+        $data = [
+            ['user_id'=>'Coder 1', 'subject_id'=> 4096],
+            ['user_id'=>'Coder 2', 'subject_id'=> 2048],
+        ];
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Mhome  $mhome
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Mhome $mhome)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mhome  $mhome
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Mhome $mhome)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Mhome  $mhome
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Mhome $mhome)
-    {
-        //
+        return $data;
     }
 }

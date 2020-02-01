@@ -40,7 +40,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="custom-control custom-radio">
-										<input type="radio" id="customRadio1" name="j_kel" value="Laki-laki" class="custom-control-input" checked>
+										<input type="radio" id="customRadio1" name="j_kel" value="Laki-laki" class="custom-control-input">
 										<label class="custom-control-label" for="customRadio1">Laki-laki</label>
 									</div>
 								</div>
