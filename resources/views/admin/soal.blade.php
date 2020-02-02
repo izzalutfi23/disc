@@ -46,7 +46,9 @@
 												<select name="nomor" class="form-control">
 													<option value="0">--Pilih--</option>
 													@foreach($no as $nomor)
-													<option value="{{$nomor->nomor}}">{{$nomor->nomor}}</option>
+														@if
+														@endif
+														<option value="{{$nomor->nomor}}">{{$nomor->nomor}}</option>
 													@endforeach
 												</select>
 											</div>
@@ -194,20 +196,32 @@
 								<tr>
 									<td>{{$data->nomor}}</td>
 									<td>
-										@php
-											$json = json_decode($data->soal);
-										@endphp
-										<table width="100%">
-											@foreach($json as $soal)
-											<tr>
-												<td>{{$soal->pilihan}}</td>
-												<td>{{$soal->keym}}</td>
-												<td>{{$soal->keyl}}</td>
-											</tr>
-											@endforeach
-										</table>
+										{{$data->soal}}
 									</td>
-									<td><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+									<td>
+										<button data-toggle="modal" data-target="#del{{$data->nomor}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+										<!-- Hapus -->
+										<div id="del{{$data->nomor}}" class="modal fade" tabindex="-1" role="dialog">
+											<div class="modal-dialog modal-sm">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+														<h4 class="modal-title">Hapus Data Mahasiswa</h4>
+													</div>
+													<div class="modal-body">
+														<p>Data dengan nomor <b>{{$data->nomor}}</b> akan dihapus!!!</p>
+													</div>
+													<div class="modal-footer">
+														<form action="{{url('/disc/soal/'.$data->nomor)}}" method="post" class="d-inline">
+															@method('delete')
+															@csrf
+															<button type="submit" class="btn btn-danger">Hapus</button>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</td>
 								</tr>
 								@endforeach
 							</table>

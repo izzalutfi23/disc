@@ -109,8 +109,9 @@ class Adminsoal extends Controller
      * @param  \App\Msoal  $msoal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Msoal $msoal)
+    public function destroy($key)
     {
-        //
+        Msoal::where(['nomor' => $key])->delete();
+        return redirect('/disc/soal')->with('status', 'Data berhasil dihapus');
     }
 }
