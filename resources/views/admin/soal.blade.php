@@ -46,8 +46,6 @@
 												<select name="nomor" class="form-control">
 													<option value="0">--Pilih--</option>
 													@foreach($no as $nomor)
-														@if
-														@endif
 														<option value="{{$nomor->nomor}}">{{$nomor->nomor}}</option>
 													@endforeach
 												</select>
@@ -66,7 +64,7 @@
 															<option value="I">I</option>
 															<option value="S">S</option>
 															<option value="C">C</option>
-															<option value="*">*</option>
+															<option value="B">*</option>
 														</select>
 													</div>
 													<div class="col-sm-3">
@@ -77,7 +75,7 @@
 															<option value="I">I</option>
 															<option value="S">S</option>
 															<option value="C">C</option>
-															<option value="*">*</option>
+															<option value="B">*</option>
 														</select>
 													</div>
 												</div>
@@ -96,7 +94,7 @@
 															<option value="I">I</option>
 															<option value="S">S</option>
 															<option value="C">C</option>
-															<option value="*">*</option>
+															<option value="B">*</option>
 														</select>
 													</div>
 													<div class="col-sm-3">
@@ -107,7 +105,7 @@
 															<option value="I">I</option>
 															<option value="S">S</option>
 															<option value="C">C</option>
-															<option value="*">*</option>
+															<option value="B">*</option>
 														</select>
 													</div>
 												</div>
@@ -126,7 +124,7 @@
 															<option value="I">I</option>
 															<option value="S">S</option>
 															<option value="C">C</option>
-															<option value="*">*</option>
+															<option value="B">*</option>
 														</select>
 													</div>
 													<div class="col-sm-3">
@@ -137,7 +135,7 @@
 															<option value="I">I</option>
 															<option value="S">S</option>
 															<option value="C">C</option>
-															<option value="*">*</option>
+															<option value="B">*</option>
 														</select>
 													</div>
 												</div>
@@ -156,7 +154,7 @@
 															<option value="I">I</option>
 															<option value="S">S</option>
 															<option value="C">C</option>
-															<option value="*">*</option>
+															<option value="B">*</option>
 														</select>
 													</div>
 													<div class="col-sm-3">
@@ -167,7 +165,7 @@
 															<option value="I">I</option>
 															<option value="S">S</option>
 															<option value="C">C</option>
-															<option value="*">*</option>
+															<option value="B">*</option>
 														</select>
 													</div>
 												</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mhome;
+use App\Msoal;
 use Illuminate\Http\Request;
 
 class Home extends Controller
@@ -50,9 +51,12 @@ class Home extends Controller
             'email'=>'required|email',
             'j_kel'=>'required'
         ], $messages);
+
+        $soal = Msoal::all();
         
         $data = array(
-            'orang' => $request
+            'orang' => $request,
+            'soal' => $soal
         );
 
         return view('page/test', $data); 

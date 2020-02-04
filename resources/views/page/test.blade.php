@@ -16,7 +16,7 @@
 			@php
 				$totalsoal = 0;
 			@endphp
-			@for ($i = 1; $i <= 4; $i++)
+			@foreach($soal as $data)
 			<div class="col-sm-6" style="margin-top: 20px;">
 				<div class="card">
 					<div class="card-body">
@@ -29,40 +29,39 @@
 							</tr>
 							@php
 							$huruf = ['A', 'B', 'C' , 'D'];
-							$disc = ['D', 'I', 'S', 'C', '*'];
 							$num = -1;
 							$totalsoal = $totalsoal+1;
+							$json = json_decode($data->soal);
 							@endphp
-							@for ($j = 1; $j <= 4; $j++)
+							@foreach($json as $pilihan)
 							@php
 							$num++;
 							$key = $huruf[$num];
-							$keydisc = $disc[$num];
 							@endphp
 							<tr>
 								@if($key == 'A')
-								<td rowspan="4" valign="top" data-id="{{ $i }}" class="num"><h6 class="card-title"  style="font-weight: bold; color: #9A9797;">{{$i}}</h6></td>
+								<td rowspan="4" valign="top" data-id="{{ $data->nomor }}" class="num"><h6 class="card-title"  style="font-weight: bold; color: #9A9797;">{{$data->nomor}}</h6></td>
 								@endif
 								<td width="9%" valign="top">
 									<label class="cont">
-										<input type="radio" name="y[{{$i}}]" id="{{$keydisc}}m" class="{{$i}}-y" value="{{$key}}">
+										<input type="radio" name="y[{{$data->nomor}}]" id="{{$pilihan->keym}}m" class="{{$data->nomor}}-y" value="{{$key}}">
 										<span class="checkmark"></span>
 									</label>
 								</td>
 								<td width="9%" valign="top">
 									<label class="cont">
-										<input type="radio" name="n[{{$i}}]" id="{{$keydisc}}l" class="{{$i}}-n" value="{{$key}}">
+										<input type="radio" name="n[{{$data->nomor}}]" id="{{$pilihan->keyl}}l" class="{{$data->nomor}}-n" value="{{$key}}">
 										<span class="checkmark"></span>
 									</label>
 								</td>
-								<td><p style="color: #9A9797;">Gambaran Diri</p></td>
+								<td><p style="color: #9A9797;">{{$pilihan->pilihan}}{{$pilihan->keym}}-m {{$pilihan->keyl}}-l</p></td>
 							</tr>
-							@endfor
+							@endforeach
 						</table>
 					</div>
 				</div>
 			</div>
-			@endfor
+			@endforeach
 		</div>
 
 	</div>
@@ -123,9 +122,19 @@
 
 <!-- Footer -->
 <nav id="submit" style="border: 1px solid #E5DDDD;" class="navbar navbar-expand-lg bg-light fixed-bottom">
-	<!-- <p>Most : <span class="Dm">0</span> D &ndash; <p><span class="Im">0</span> I &ndash; <p><span class="Sm">0</span> S &ndash; <span class="Cm">0</span> C</p>
-	<p>Most : <span class="Dl">0</span> D &ndash; <p><span class="Il">0</span> I &ndash; <p><span class="Sl">0</span> S &ndash; <span class="Cl">0</span> C</p> -->
+
+	<input id="D" name="Dm">
+	<input id="I" name="Im">
+	<input id="S" name="Sm">
+	<input id="C" name="Cm">
+	<input id="B" name="Bm">
+
 	<ul class="navbar nav ml-auto">
+	<input id="K" name="Dl">d
+	<input id="O" name="Il">i
+	<input id="L" name="Sl">s
+	<input id="E" name="Cl">c
+	<input id="H" name="Bl">b
 		<li class="nav-item">
 			<span id="answered" style="color: #A8A7A7">0</span><span style="color: #A8A7A7">/</span><span id="total" style="color: #A8A7A7">{{$totalsoal}}</span> <span style="color: #A8A7A7">Soal Terjawab</span>
 		</li>
@@ -159,6 +168,30 @@
 			oppositeValue = $("." + currentNumber + "-" + oppositeCode + ":checked").val();
 		}
 
+
+		var Dm = $('#Dm:checked').length
+		var Im = $('#Im:checked').length
+		var Sm = $('#Sm:checked').length
+		var Cm = $('#Cm:checked').length
+		var Bm = $('#Bm:checked').length
+		document.getElementById('D').value = Dm;
+		document.getElementById('I').value = Im;
+		document.getElementById('S').value = Sm;
+		document.getElementById('C').value = Cm;
+		document.getElementById('B').value = Bm;
+
+		var Dl = $('#Dl:checked').length
+		var Il = $('#Il:checked').length
+		var Sl = $('#Sl:checked').length
+		var Cl = $('#Cl:checked').length
+		var Bl = $('#Bl:checked').length
+		document.getElementById('K').value = Dl;
+		document.getElementById('O').value = Il;
+		document.getElementById('L').value = Sl;
+		document.getElementById('E').value = Cl;
+		document.getElementById('H').value = Bl;
+
+
 		// Count answered question
 		countAnswered();
 
@@ -179,37 +212,11 @@
 		$("#answered").text(total);
 		return total;
 	}
-	// Count DISC Most
-	$(document).ready(function() {
-		$('input').change(function(){
-			var D = $('#Dm:checked').length
-			var I = $('#Im:checked').length
-			var S = $('#Sm:checked').length
-			var C = $('#Cm:checked').length 
-			$('.Dm').text(D)
-			$('.Im').text(I)
-			$('.Sm').text(S)
-			$('.Cm').text(C)                        
-		})
-	});
-	// Count DISC Lost
-	$(document).ready(function() {
-		$('input').change(function(){
-			var D = $('#Dl:checked').length
-			var I = $('#Il:checked').length
-			var S = $('#Sl:checked').length
-			var C = $('#Cl:checked').length 
-			$('.Dl').text(D)
-			$('.Il').text(I)
-			$('.Sl').text(S)
-			$('.Cl').text(C)                        
-		})
-	});
 
 	// Modal dialog tutorial
-	$(document).ready(function(){
-		$("#tutorial").modal("toggle");
-	});
+	// $(document).ready(function(){
+	// 	$("#tutorial").modal("toggle");
+	// });
 
 </script>
 
