@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mhome;
 use App\Msoal;
+use App\Musertest;
 use Illuminate\Http\Request;
 
 class Home extends Controller
@@ -16,7 +17,7 @@ class Home extends Controller
     public function index()
     {
         $data = array(
-            'orang' => null
+            'nama' => null
         );
         return view('page/registrasi', $data);
     }
@@ -55,7 +56,10 @@ class Home extends Controller
         $soal = Msoal::all();
         
         $data = array(
-            'orang' => $request,
+            'nama' => $request->nama,
+            'usia' => $request->usia,
+            'email' => $request->email,
+            'j_kel' => $request->j_kel,
             'soal' => $soal
         );
 
@@ -66,7 +70,10 @@ class Home extends Controller
 
     public function postest(Request $request){
         $data = array(
-            'orang' => $request,
+            'nama' => $request->nama,
+            'usia' => $request->usia,
+            'email' => $request->email,
+            'j_kel' => $request->j_kel,
             'dm' => $request->Dm,
             'im' => $request->Im,
             'sm' => $request->Sm,
@@ -78,6 +85,25 @@ class Home extends Controller
             'cl' => $request->Cl,
             'bl' => $request->Bl
         );
+
+        $param = array(
+            'nama' => $request->nama,
+            'usia' => $request->usia,
+            'email' => $request->email,
+            'j_kel' => $request->j_kel,
+            'dm' => $request->Dm,
+            'im' => $request->Im,
+            'sm' => $request->Sm,
+            'cm' => $request->Cm,
+            'bm' => $request->Bm,
+            'dl' => $request->Dl,
+            'il' => $request->Il,
+            'sl' => $request->Sl,
+            'cl' => $request->Cl,
+            'bl' => $request->Bl
+        );
+
+        Musertest::create($param);
 
         return view('page/postest', $data);
     }

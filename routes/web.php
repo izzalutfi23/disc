@@ -22,5 +22,8 @@ Route::get('disc/coba', 'Adminsoal@coba');
 // Admin
 Route::get('/disc/admin', 'Admin@index');
 Route::get('/disc/soal', 'Adminsoal@index');
+Route::get('/disc/usertest', 'Admin@usertest');
+Route::get('/disc/usertest/{Musertest}', 'Admin@lihathasil');
+
 Route::post('/disc/soal', 'Adminsoal@store');
 Route::delete('/disc/soal/{Msoal}', 'Adminsoal@destroy');

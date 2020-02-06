@@ -15,33 +15,17 @@ $tl = $dl+$il+$sl+$cl+$bl;
 				<p style="font-weight: bold;">Hasil DISC TEST</p>
 			</div>
 			<div class="pull-right">
-				<form action="{{url('/test/print')}}" method="post">
-					@csrf
-					<input type="hidden" name="nama" value="{{$orang->nama}}">
-					<input type="hidden" name="usia" value="{{$orang->usia}}">
-					<input type="hidden" name="j_kel" value="{{$orang->j_kel}}">
-					<input type="hidden" name="email" value="{{$orang->email}}">
-					<input type="hidden" name="dm" value="{{$dm}}">
-					<input type="hidden" name="im" value="{{$im}}">
-					<input type="hidden" name="sm" value="{{$sm}}">
-					<input type="hidden" name="cm" value="{{$cm}}">
-					<input type="hidden" name="bm" value="{{$bm}}">
-					<input type="hidden" name="dl" value="{{$dl}}">
-					<input type="hidden" name="il" value="{{$il}}">
-					<input type="hidden" name="sl" value="{{$sl}}">
-					<input type="hidden" name="cl" value="{{$cl}}">
-					<input type="hidden" name="bl" value="{{$bl}}">
-				</form>
+				<p style="font-weight: bold;" id="tanggal">{{date('d')}}, {{date('M')}}, {{date('Y')}}</p>
 				<button class="btn btn-success" id="btn-print">Cetak <i class="fa fa-print"></i></button>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 		<hr>
 		<div class="row">
-			<div class="col-sm-4"><p class="lead">Nama : {{$orang->nama}}</p></div>
-			<div class="col-sm-2"><p class="lead">Usia : {{$orang->usia}}</p></div>
-			<div class="col-sm-3"><p class="lead">Jenis Kelamin : {{$orang->j_kel}}</p></div>
-			<div class="col-sm-3"><p class="lead">Email : {{$orang->email}}</p></div>
+			<div class="col-sm-4"><p class="lead">Nama : {{$nama}}</p></div>
+			<div class="col-sm-2"><p class="lead">Usia : {{$usia}}</p></div>
+			<div class="col-sm-3"><p class="lead">Jenis Kelamin : {{$j_kel}}</p></div>
+			<div class="col-sm-3"><p class="lead">Email : {{$email}}</p></div>
 		</div>
 		<table class="table table-bordered table-hover" style="margin-top: 20px;">
 			<thead>

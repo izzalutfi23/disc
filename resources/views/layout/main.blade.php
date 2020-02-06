@@ -139,7 +139,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<div class="navbar-nav ml-auto" style="background-color: #7E799B; margin: 0;">
-				<a href="#" class="nav-item nav-link" style="padding: 20px; color: #FFF;">Selamat Datang @if($orang!=null) {{$orang->nama}} @endif</a>
+				<a href="#" class="nav-item nav-link" style="padding: 20px; color: #FFF;">Selamat Datang @if($nama!=null) {{$nama}} @endif</a>
 			</div>
 		</div>
 	</nav>

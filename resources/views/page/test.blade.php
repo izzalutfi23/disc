@@ -8,10 +8,10 @@
 		<p class="lead">Tes ini terdiri dari 24 Soal dan 2 jawaban setiap soal. Jawab secara jujur dan spontan. Estimasi waktu pengerjaan adalah 5-10 menit.</p>
 		<form method="post" action="{{url('/test/postest')}}">
 		@csrf
-		<input type="hidden" name="nama" value="{{$orang->nama}}">
-		<input type="hidden" name="usia" value="{{$orang->usia}}">
-		<input type="hidden" name="j_kel" value="{{$orang->j_kel}}">
-		<input type="hidden" name="email" value="{{$orang->email}}">
+		<input type="hidden" name="nama" value="{{$nama}}">
+		<input type="hidden" name="usia" value="{{$usia}}">
+		<input type="hidden" name="j_kel" value="{{$j_kel}}">
+		<input type="hidden" name="email" value="{{$email}}">
 		<div class="row">
 			@php
 				$totalsoal = 0;

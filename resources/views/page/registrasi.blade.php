@@ -68,7 +68,6 @@
 			<span id="span"></span>
 		</li>
 		<li class="nav-item ml-3">
-			<a style="font-size: 1.5em; cursor: help;" data-toggle="modal" data-target="#tutorial"><i class="fa fa-question-circle"></i></a>
 		</li>
 		<li class="nav-item ml-3">
 			<button type="submit" class="btn btn-success">Submit</button>
