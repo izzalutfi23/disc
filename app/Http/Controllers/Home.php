@@ -66,8 +66,19 @@ class Home extends Controller
 
     public function postest(Request $request){
         $data = array(
-            'orang' => $request
+            'orang' => $request,
+            'dm' => $request->Dm,
+            'im' => $request->Im,
+            'sm' => $request->Sm,
+            'cm' => $request->Cm,
+            'bm' => $request->Bm,
+            'dl' => $request->Dl,
+            'il' => $request->Il,
+            'sl' => $request->Sl,
+            'cl' => $request->Cl,
+            'bl' => $request->Bl
         );
+
         return view('page/postest', $data);
     }
 

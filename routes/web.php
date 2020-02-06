@@ -13,13 +13,14 @@
 
 
 // Registrasi
-Route::get('/', 'home@index');
-Route::post('/test', 'home@store');
-Route::post('/test/postest', 'home@postest');
+Route::get('/', 'Home@index');
+Route::post('/test', 'Home@store');
+Route::post('/test/postest', 'Home@postest');
+Route::post('/test/print', 'Home@print');
 
-Route::get('disc/coba', 'adminsoal@coba');
+Route::get('disc/coba', 'Adminsoal@coba');
 // Admin
-Route::get('/disc/admin', 'admin@index');
-Route::get('/disc/soal', 'adminsoal@index');
-Route::post('/disc/soal', 'adminsoal@store');
-Route::delete('/disc/soal/{Msoal}', 'adminsoal@destroy');
+Route::get('/disc/admin', 'Admin@index');
+Route::get('/disc/soal', 'Adminsoal@index');
+Route::post('/disc/soal', 'Adminsoal@store');
+Route::delete('/disc/soal/{Msoal}', 'Adminsoal@destroy');

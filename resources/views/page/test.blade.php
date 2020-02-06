@@ -54,7 +54,7 @@
 										<span class="checkmark"></span>
 									</label>
 								</td>
-								<td><p style="color: #9A9797;">{{$pilihan->pilihan}}{{$pilihan->keym}}-m {{$pilihan->keyl}}-l</p></td>
+								<td><p style="color: #9A9797;">{{$pilihan->pilihan}}</p></td>
 							</tr>
 							@endforeach
 						</table>
@@ -123,18 +123,18 @@
 <!-- Footer -->
 <nav id="submit" style="border: 1px solid #E5DDDD;" class="navbar navbar-expand-lg bg-light fixed-bottom">
 
-	<input id="D" name="Dm">
-	<input id="I" name="Im">
-	<input id="S" name="Sm">
-	<input id="C" name="Cm">
-	<input id="B" name="Bm">
+	<input type="hidden" id="D" name="Dm">
+	<input type="hidden" id="I" name="Im">
+	<input type="hidden" id="S" name="Sm">
+	<input type="hidden" id="C" name="Cm">
+	<input type="hidden" id="B" name="Bm">
 
 	<ul class="navbar nav ml-auto">
-	<input id="K" name="Dl">d
-	<input id="O" name="Il">i
-	<input id="L" name="Sl">s
-	<input id="E" name="Cl">c
-	<input id="H" name="Bl">b
+	<input type="hidden" id="K" name="Dl">
+	<input type="hidden" id="O" name="Il">
+	<input type="hidden" id="L" name="Sl">
+	<input type="hidden" id="E" name="Cl">
+	<input type="hidden" id="H" name="Bl">
 		<li class="nav-item">
 			<span id="answered" style="color: #A8A7A7">0</span><span style="color: #A8A7A7">/</span><span id="total" style="color: #A8A7A7">{{$totalsoal}}</span> <span style="color: #A8A7A7">Soal Terjawab</span>
 		</li>
@@ -214,9 +214,9 @@
 	}
 
 	// Modal dialog tutorial
-	// $(document).ready(function(){
-	// 	$("#tutorial").modal("toggle");
-	// });
+	$(document).ready(function(){
+		$("#tutorial").modal("toggle");
+	});
 
 </script>
 

@@ -11,6 +11,24 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	
 	<style type="text/css">
+
+	@media print {
+		body{
+			visibility: hidden;
+		}
+		#printpage, #printpage * {
+			visibility: visible;
+		}
+		#printpage {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#btn-print{
+			display: none;
+		}
+	}
+
 	.bs-example{
 		margin: 40px;
 	}

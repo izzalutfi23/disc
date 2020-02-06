@@ -1,8 +1,41 @@
 @extends('layout/main')
 @section('container')
+@php
+$cd = $dm-$dl;
+$ci = $im-$il;
+$cs = $sm-$sl;
+$cc = $cm-$cl;
+$tm = $dm+$im+$sm+$cm+$bm;
+$tl = $dl+$il+$sl+$cl+$bl;
+@endphp
 <div class="container" style="margin-top: 30px; margin-bottom: 20px;">
-	<div class="jumbotron" style="background-color: #FFF;">
-		<p style="font-weight: bold;">Hasil DISC TEST</p>
+	<div class="jumbotron" id="printpage" style="background-color: #FFF; width: 100%;">
+		<div class="page-header">
+			<div class="pull-left">
+				<p style="font-weight: bold;">Hasil DISC TEST</p>
+			</div>
+			<div class="pull-right">
+				<form action="{{url('/test/print')}}" method="post">
+					@csrf
+					<input type="hidden" name="nama" value="{{$orang->nama}}">
+					<input type="hidden" name="usia" value="{{$orang->usia}}">
+					<input type="hidden" name="j_kel" value="{{$orang->j_kel}}">
+					<input type="hidden" name="email" value="{{$orang->email}}">
+					<input type="hidden" name="dm" value="{{$dm}}">
+					<input type="hidden" name="im" value="{{$im}}">
+					<input type="hidden" name="sm" value="{{$sm}}">
+					<input type="hidden" name="cm" value="{{$cm}}">
+					<input type="hidden" name="bm" value="{{$bm}}">
+					<input type="hidden" name="dl" value="{{$dl}}">
+					<input type="hidden" name="il" value="{{$il}}">
+					<input type="hidden" name="sl" value="{{$sl}}">
+					<input type="hidden" name="cl" value="{{$cl}}">
+					<input type="hidden" name="bl" value="{{$bl}}">
+				</form>
+				<button class="btn btn-success" id="btn-print">Cetak <i class="fa fa-print"></i></button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
 		<hr>
 		<div class="row">
 			<div class="col-sm-4"><p class="lead">Nama : {{$orang->nama}}</p></div>
@@ -19,32 +52,36 @@
 					<th>S</th>
 					<th>C</th>
 					<th>*</th>
+					<th>Total</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<th scope="row">MOST</th>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
+					<td>{{$dm}}</td>
+					<td>{{$im}}</td>
+					<td>{{$sm}}</td>
+					<td>{{$cm}}</td>
+					<td>{{$bm}}</td>
+					<td>{{$tm}}</td>
 				</tr>
 				<tr>
 					<th scope="row">LEAST</th>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
+					<td>{{$dl}}</td>
+					<td>{{$il}}</td>
+					<td>{{$sl}}</td>
+					<td>{{$cl}}</td>
+					<td>{{$bl}}</td>
+					<td>{{$tl}}</td>
 				</tr>
 				<tr>
 					<th scope="row">CHANGE</th>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
-					<td>3</td>
+					<td>{{$cd}}</td>
+					<td>{{$ci}}</td>
+					<td>{{$cs}}</td>
+					<td>{{$cc}}</td>
+					<td bgcolor="#E8DFDF"></td>
+					<td bgcolor="#E8DFDF"></td>
 				</tr>           
 			</tbody>
 		</table>
@@ -122,6 +159,7 @@
 		</div>
 	</div>
 </div>
+
 <script type="text/javascript" src="{{asset('/js/Chart.js')}}"></script>
 
 <!-- Chart 1 -->
@@ -132,7 +170,7 @@
 		data: {
 			labels: ["D", "I", "S", "C"],
 			datasets: [{
-				data: [-3,4,-1,5.3],
+				data: [{{$dm}}, {{$im}}, {{$sm}}, {{$cm}}],
 				fill: false,
 				borderColor: '#A947FD',
 				borderWidth: 3
@@ -169,7 +207,7 @@
 		data: {
 			labels: ["D", "I", "S", "C"],
 			datasets: [{
-				data: [0.5,0,-4,0],
+				data: [{{$dl}}, {{$il}}, {{$sl}}, {{$cl}}],
 				fill: false,
 				borderColor: 'green',
 				borderWidth: 3
@@ -206,7 +244,7 @@
 		data: {
 			labels: ["D", "I", "S", "C"],
 			datasets: [{
-				data: [0.5,-3.5,1,5.5],
+				data: [{{$cd}}, {{$ci}}, {{$cs}}, {{$cc}}],
 				fill: false,
 				borderColor: '#FC6A30',
 				borderWidth: 3
@@ -232,6 +270,11 @@
 				}]
 			}
 		}
+	});
+
+	$(document).on("click", "#btn-print", function(e){
+		e.preventDefault();
+		window.print();
 	});
 </script>
 @endsection
