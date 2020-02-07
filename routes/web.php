@@ -18,12 +18,19 @@ Route::post('/test', 'Home@store');
 Route::post('/test/postest', 'Home@postest');
 Route::post('/test/print', 'Home@print');
 
-Route::get('disc/coba', 'Adminsoal@coba');
-// Admin
-Route::get('/disc/admin', 'Admin@index');
-Route::get('/disc/soal', 'Adminsoal@index');
-Route::get('/disc/usertest', 'Admin@usertest');
-Route::get('/disc/usertest/{Musertest}', 'Admin@lihathasil');
 
+// Login
+Route::get('/login', 'Authcontroller@index')->name('login');
+Route::post('/postlogin', 'Authcontroller@postlogin');
+Route::get('/logout', 'Authcontroller@logout');
+
+// Admin
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/disc/admin', 'Admin@index');
+	Route::get('/disc/soal', 'Adminsoal@index');
+	Route::get('/disc/usertest', 'Admin@usertest');
+});
+
+Route::get('/disc/usertest/{Musertest}', 'Admin@lihathasil');
 Route::post('/disc/soal', 'Adminsoal@store');
 Route::delete('/disc/soal/{Msoal}', 'Adminsoal@destroy');
