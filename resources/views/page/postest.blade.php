@@ -144,6 +144,8 @@ $tl = $dl+$il+$sl+$cl+$bl;
 	</div>
 </div>
 
+
+
 <script type="text/javascript" src="{{asset('/js/Chart.js')}}"></script>
 
 <!-- Chart 1 -->
@@ -154,7 +156,7 @@ $tl = $dl+$il+$sl+$cl+$bl;
 		data: {
 			labels: ["D", "I", "S", "C"],
 			datasets: [{
-				data: [{{$dm}}, {{$im}}, {{$sm}}, {{$cm}}],
+				data: [{{$kmd}}, {{$kmi}}, {{$kms}}, {{$kmc}}],
 				fill: false,
 				borderColor: '#A947FD',
 				borderWidth: 3
@@ -165,17 +167,12 @@ $tl = $dl+$il+$sl+$cl+$bl;
 			legend: {
 				display: false
 			},
-			tooltips: {
-				callbacks: {
-					label: function(tooltipItem) {
-						return tooltipItem.yLabel;
-					}
-				}
-			},
 			scales: {
 				yAxes: [{
 					ticks: {
-						beginAtZero:true
+						stepSize: 10,
+						suggestedMin: 0,
+						suggestedMax: 100
 					}
 				}]
 			}
@@ -191,7 +188,7 @@ $tl = $dl+$il+$sl+$cl+$bl;
 		data: {
 			labels: ["D", "I", "S", "C"],
 			datasets: [{
-				data: [{{$dl}}, {{$il}}, {{$sl}}, {{$cl}}],
+				data: [{{$kld}}, {{$kli}}, {{$kls}}, {{$klc}}],
 				fill: false,
 				borderColor: 'green',
 				borderWidth: 3
@@ -212,7 +209,9 @@ $tl = $dl+$il+$sl+$cl+$bl;
 			scales: {
 				yAxes: [{
 					ticks: {
-						beginAtZero:true
+						stepSize: 10,
+						suggestedMin: 0,
+						suggestedMax: 100
 					}
 				}]
 			}
@@ -249,7 +248,9 @@ $tl = $dl+$il+$sl+$cl+$bl;
 			scales: {
 				yAxes: [{
 					ticks: {
-						beginAtZero:true
+						stepSize: 10,
+						suggestedMin: 0,
+						suggestedMax: 100
 					}
 				}]
 			}

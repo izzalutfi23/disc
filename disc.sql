@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2020 at 08:02 AM
+-- Generation Time: Feb 21, 2020 at 10:45 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -58,7 +58,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_01_31_055044_create_nomor_table', 2),
-(5, '2020_02_01_141855_cretae_soal_table', 3);
+(5, '2020_02_01_141855_cretae_soal_table', 3),
+(6, '2020_02_06_121454_create_usertest_table', 4);
 
 -- --------------------------------------------------------
 
@@ -179,7 +180,92 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$xuhF4KSmF43d8HdS8LEBU.oZCsvTEc.QmQex/l45gRtLsUSDSUVum', 'rc0iRxYPZp3BTYc6OMQV', '2020-01-30 21:07:45', '2020-01-30 21:07:45');
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$xuhF4KSmF43d8HdS8LEBU.oZCsvTEc.QmQex/l45gRtLsUSDSUVum', '60ZWUcRDDvszUDG9MoWBmGl1NjHshxKigDdnqprF6TDzMoeK3xNddgAXfhoL', '2020-01-30 21:07:45', '2020-01-30 21:07:45'),
+(2, 'disc', 'disc@gmail.com', NULL, '$2y$10$WAEutt9.f1tHaNzI70uI4eQZiVDiO2iVB3aAjQGV33tFT9KracGnC', 'qFz6lLx49ZjAiSeEB5OHW1w0Fti9D2pIqC5APcvXUVK2GPLVBJ', '2020-02-06 20:47:12', '2020-02-06 20:47:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usertest`
+--
+
+CREATE TABLE `usertest` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `usia` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `j_kel` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dm` int(11) NOT NULL,
+  `im` int(11) NOT NULL,
+  `sm` int(11) NOT NULL,
+  `cm` int(11) NOT NULL,
+  `bm` int(11) NOT NULL,
+  `dl` int(11) NOT NULL,
+  `il` int(11) NOT NULL,
+  `sl` int(11) NOT NULL,
+  `cl` int(11) NOT NULL,
+  `bl` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `usertest`
+--
+
+INSERT INTO `usertest` (`id`, `nama`, `usia`, `email`, `j_kel`, `dm`, `im`, `sm`, `cm`, `bm`, `dl`, `il`, `sl`, `cl`, `bl`, `created_at`, `updated_at`) VALUES
+(1, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 5, 7, 2, 4, 6, 9, 4, 4, 3, 4, '2020-02-06 05:31:04', '2020-02-06 05:31:04'),
+(2, 'test', '21', 'izzalutfi45@gmail.com', 'Laki-laki', 5, 6, 3, 4, 6, 3, 6, 7, 3, 5, '2020-02-06 09:13:12', '2020-02-06 09:13:12'),
+(3, 'Suhardi', '20', 'izzalutfi045@gmail.com', 'Perempuan', 2, 5, 4, 5, 8, 7, 5, 6, 3, 3, '2020-02-06 10:00:20', '2020-02-06 10:00:20'),
+(4, 'Suhardi', '30', 'izzalutfi45@gmail.com', 'Laki-laki', 7, 1, 6, 4, 6, 5, 3, 6, 6, 4, '2020-02-09 16:26:45', '2020-02-09 16:26:45'),
+(5, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 6, 5, 1, 6, 3, 3, 5, 5, 8, '2020-02-12 12:47:08', '2020-02-12 12:47:08'),
+(6, 'Admin', '22', 'admin@example.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-12 17:01:07', '2020-02-12 17:01:07'),
+(7, 'coba', '21', 'izzalutfi455@gmail.com', 'Laki-laki', 5, 3, 6, 3, 7, 6, 9, 3, 3, 3, '2020-02-16 20:14:29', '2020-02-16 20:14:29'),
+(8, 'coba', '21', 'izzalutfi455@gmail.com', 'Laki-laki', 5, 3, 6, 3, 7, 6, 9, 3, 3, 3, '2020-02-16 20:16:10', '2020-02-16 20:16:10'),
+(9, 'coba', '21', 'izzalutfi455@gmail.com', 'Laki-laki', 5, 3, 6, 3, 7, 6, 9, 3, 3, 3, '2020-02-16 20:18:19', '2020-02-16 20:18:19'),
+(10, 'coba', '21', 'izzalutfi455@gmail.com', 'Laki-laki', 5, 3, 6, 3, 7, 6, 9, 3, 3, 3, '2020-02-16 20:18:32', '2020-02-16 20:18:32'),
+(11, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:33:20', '2020-02-17 19:33:20'),
+(12, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:33:21', '2020-02-17 19:33:21'),
+(13, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:37:31', '2020-02-17 19:37:31'),
+(14, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:38:03', '2020-02-17 19:38:03'),
+(15, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:39:14', '2020-02-17 19:39:14'),
+(16, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:41:12', '2020-02-17 19:41:12'),
+(17, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:41:35', '2020-02-17 19:41:35'),
+(18, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:41:45', '2020-02-17 19:41:45'),
+(19, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 19:58:24', '2020-02-17 19:58:24'),
+(20, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:01:14', '2020-02-17 20:01:14'),
+(21, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:01:38', '2020-02-17 20:01:38'),
+(22, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:03:26', '2020-02-17 20:03:26'),
+(23, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:03:48', '2020-02-17 20:03:48'),
+(24, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:04:43', '2020-02-17 20:04:43'),
+(25, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:05:38', '2020-02-17 20:05:38'),
+(26, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:07:02', '2020-02-17 20:07:02'),
+(27, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:14:50', '2020-02-17 20:14:50'),
+(28, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:22:20', '2020-02-17 20:22:20'),
+(29, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:27:14', '2020-02-17 20:27:14'),
+(30, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 20:59:32', '2020-02-17 20:59:32'),
+(31, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:04:30', '2020-02-17 21:04:30'),
+(32, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:09:20', '2020-02-17 21:09:20'),
+(33, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:15:09', '2020-02-17 21:15:09'),
+(34, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:15:53', '2020-02-17 21:15:53'),
+(35, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:16:04', '2020-02-17 21:16:04'),
+(36, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:16:15', '2020-02-17 21:16:15'),
+(37, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:22:36', '2020-02-17 21:22:36'),
+(38, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:23:44', '2020-02-17 21:23:44'),
+(39, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:24:00', '2020-02-17 21:24:00'),
+(40, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:24:25', '2020-02-17 21:24:25'),
+(41, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:25:59', '2020-02-17 21:25:59'),
+(42, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:26:11', '2020-02-17 21:26:11'),
+(43, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:26:19', '2020-02-17 21:26:19'),
+(44, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:27:30', '2020-02-17 21:27:30'),
+(45, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:27:58', '2020-02-17 21:27:58'),
+(46, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:31:00', '2020-02-17 21:31:00'),
+(47, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:31:19', '2020-02-17 21:31:19'),
+(48, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:31:29', '2020-02-17 21:31:29'),
+(49, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:31:36', '2020-02-17 21:31:36'),
+(50, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:36:17', '2020-02-17 21:36:17'),
+(51, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:36:25', '2020-02-17 21:36:25'),
+(52, 'Muhammad Izza Lutfi', '21', 'izzalutfi045@gmail.com', 'Laki-laki', 6, 4, 6, 4, 4, 3, 11, 5, 2, 3, '2020-02-17 21:36:32', '2020-02-17 21:36:32');
 
 --
 -- Indexes for dumped tables
@@ -223,6 +309,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `usertest`
+--
+ALTER TABLE `usertest`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -236,13 +328,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `usertest`
+--
+ALTER TABLE `usertest`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
