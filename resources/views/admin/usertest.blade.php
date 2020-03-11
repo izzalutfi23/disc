@@ -43,8 +43,8 @@
 										<a href="{{url('/disc/usertest/'.$data->id)}}"><button class="btn btn-danger">Lihat Hasil Tes</button></a>
 									</td>
 								</tr>
+								@endforeach
 							</tbody>
-							@endforeach
 						</table>
 					</div>
 					<!-- /.box-body -->
